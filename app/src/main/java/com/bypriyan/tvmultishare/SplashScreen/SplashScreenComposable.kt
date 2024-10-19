@@ -15,13 +15,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
-import com.bypriyan.tvmultishare.MainUi.HomeScreen
+import com.bypriyan.tvmultishare.ui.theme.home.HomeScreen
 import kotlinx.coroutines.delay
 
 @Composable
@@ -37,8 +36,6 @@ fun SplashScreenContent() {
 
     if (showMainScreen) {
         MainContent()
-
-
         HomeScreen()
     } else {
         SplashScreen()

@@ -8,7 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
-import com.bypriyan.tvmultishare.MainUi.HomeScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.bypriyan.tvmultishare.SplashScreen.SplashScreenContent
 import java.util.ArrayList
 
@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        installSplashScreen()
         // Initialize permissions request
         permissionLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
             isReadPermissionGranted = permissions[Manifest.permission.READ_EXTERNAL_STORAGE] ?: false

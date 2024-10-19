@@ -1,4 +1,4 @@
-package com.bypriyan.tvmultishare.MainUi
+package com.bypriyan.tvmultishare.utils
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable

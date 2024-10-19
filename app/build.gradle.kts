@@ -2,7 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("org.jetbrains.kotlin.kapt")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -84,19 +85,13 @@ dependencies {
         implementation(libs.androidx.multidex)
 
         // Dagger Hilt
-        implementation("com.google.dagger:hilt-android:2.52")
-         kapt("com.google.dagger:hilt-android-compiler:2.52")
-        implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
-
-        // Test dependencies
-        testImplementation(libs.junit)
-        androidTestImplementation(libs.androidx.junit)
-        androidTestImplementation(libs.androidx.espresso.core)
-        androidTestImplementation(libs.ui.test.junit4)
-        debugImplementation(libs.ui.tooling)
-        debugImplementation(libs.ui.test.manifest)
+        implementation("com.google.dagger:hilt-android:2.51.1")
+        kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 
          //Lottie Animation
-    implementation ("com.airbnb.android:lottie-compose:6.5.2")
+        implementation ("com.airbnb.android:lottie-compose:6.5.2")
+}
 
+kapt {
+    correctErrorTypes = true
 }
