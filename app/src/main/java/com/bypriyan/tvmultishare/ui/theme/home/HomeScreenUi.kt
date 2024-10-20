@@ -1,19 +1,25 @@
 package com.bypriyan.tvmultishare.ui.theme.home
 
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.bypriyan.tvmultishare.utils.getDeviceType
 import com.bypriyan.tvmultishare.utils.responsiveBackgroundColor
 import com.bypriyan.tvmultishare.utils.responsiveButtonHeight
@@ -26,83 +32,51 @@ import com.bypriyan.tvmultishare.R
 
 @Composable
 fun HomeScreen() {
-    val deviceType = getDeviceType()
-    val context = LocalContext.current
 
+}
 
-
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(responsiveBackgroundColor(deviceType))
-            .padding(responsivePadding(deviceType))
+@Preview(showBackground = true)
+@Composable
+fun storageContent(title:String= "hello", storage:String = "hello"){
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.Top
-        ) {
-            Text("Send files easily", fontSize = responsiveTextSize(deviceType))
-        }
 
-        Spacer(modifier = Modifier.Companion.height(responsiveSpacerSize(deviceType)))
+        Text(
+            text = title,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            fontSize = 14.sp,
+            color = colorResource(R.color.dark_greay),
+            fontFamily = FontFamily(
+                Font(R.font.medium),
+            )
+        )
 
-        LazyVerticalGrid(
-            columns = GridCells.Adaptive(minSize = 220.dp),
-            verticalArrangement = Arrangement.spacedBy(responsiveSpacerSize(deviceType)),
-            horizontalArrangement = Arrangement.spacedBy(responsiveSpacerSize(deviceType)),
-            modifier = Modifier.fillMaxSize()
-        ) {
-            item {
-                Column(
-                    modifier = Modifier.fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    Spacer(modifier = Modifier.Companion.height(responsiveSpacerSize(deviceType)))
-                    Image(
-                        painter = painterResource(id = R.drawable.send),
-                        contentDescription = "Send Icon",
-                        modifier = Modifier.Companion.size(responsiveImageSize(deviceType))
-                    )
-                    Spacer(modifier = Modifier.Companion.height(responsiveSpacerSize(deviceType)))
-                    val buttonModifier = Modifier
-                        .fillMaxWidth()
-                        .height(responsiveButtonHeight(deviceType))
-                    Button(
-                        onClick = { /* Do something */ },
-                        modifier = buttonModifier,
-                        shape = responsiveButtonShape(deviceType)
-                    ) {
-                        Text(text = "Send", fontSize = responsiveTextSize(deviceType))
-                    }
-                }
-            }
-            item {
-                Column(
-                    modifier = Modifier.fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    Spacer(modifier = Modifier.Companion.height(responsiveSpacerSize(deviceType)))
-                    Image(
-                        painter = painterResource(id = R.drawable.recive_file),
-                        contentDescription = "Receive Icon",
-                        modifier = Modifier.Companion.size(responsiveImageSize(deviceType))
-                    )
-                    Spacer(modifier = Modifier.Companion.height(responsiveSpacerSize(deviceType)))
-                    val buttonModifier = Modifier
-                        .fillMaxWidth()
-                        .height(responsiveButtonHeight(deviceType))
-                    Button(
-                        onClick = { /* Do something */ },
-                        modifier = buttonModifier,
-                        shape = responsiveButtonShape(deviceType)
-                    ) {
-                        Text(text = "Receive", fontSize = responsiveTextSize(deviceType))
-                    }
-                }
-            }
-        }
+        Spacer(Modifier.height(10.dp))
+
+        Text(
+            text = storage,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            fontSize = 16.sp,
+            color = colorResource(R.color.black),
+            fontFamily = FontFamily(
+                Font(R.font.black),
+            )
+        )
+        Spacer(Modifier.height(10.dp))
+        Text(
+            text = "View Details",
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            fontSize = 14.sp,
+            color = colorResource(R.color.appColor),
+            fontFamily = FontFamily(
+                Font(R.font.bold),
+            )
+        )
+
     }
 }

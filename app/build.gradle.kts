@@ -8,12 +8,13 @@ plugins {
 
 android {
     namespace = "com.bypriyan.tvmultishare"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.bypriyan.tvmultishare"
         minSdk = 24
         targetSdk = 34
+        multiDexEnabled = true
         versionCode = 1
         versionName = "1.0"
 
@@ -59,11 +60,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-        // Jetpack Compose
-        implementation("androidx.compose.ui:ui:1.7.4")
-        implementation("androidx.compose.material3:material3:1.3.0")
-        implementation("androidx.compose.ui:ui-tooling-preview:1.7.4")
-        implementation("androidx.activity:activity-compose:1.9.3")
+        // material 3
+    implementation("androidx.compose.material3:material3:1.3.0")
+    implementation("androidx.compose.material3:material3-window-size-class:1.3.0")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.4.0-alpha02")
 
         // Lifecycle and LiveData
         implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.6")

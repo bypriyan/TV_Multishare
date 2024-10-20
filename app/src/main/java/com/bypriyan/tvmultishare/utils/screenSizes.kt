@@ -27,9 +27,9 @@ fun getDeviceType(): DeviceType {
 @Composable
 fun responsiveBackgroundColor(deviceType: DeviceType): Color {
     return when (deviceType) {
-        DeviceType.PHONE -> Color.LightGray
-        DeviceType.TABLET -> Color.Gray
-        DeviceType.TV -> Color.DarkGray
+        DeviceType.PHONE -> Color.White
+        DeviceType.TABLET -> Color.White
+        DeviceType.TV -> Color.White
     }
 }
 
